@@ -1,0 +1,5 @@
+0.035
+perl(Cairo)
+perl(Cairo::GObject)
+perl(Glib)
+perl(Glib::Object::Introspection)
