@@ -4,13 +4,14 @@
 #
 Name     : perl-Gtk3
 Version  : 0.036
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/X/XA/XAOC/Gtk3-0.036.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/X/XA/XAOC/Gtk3-0.036.tar.gz
-Summary  : Perl interface to the 3.x series of the GTK+ toolkit
+Summary  : 'Perl interface to the 3.x series of the gtk+ toolkit'
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: perl-Gtk3-license = %{version}-%{release}
+Requires: perl-Gtk3-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : gtk3-dev
 BuildRequires : perl(Cairo)
@@ -31,7 +32,6 @@ Summary: dev components for the perl-Gtk3 package.
 Group: Development
 Provides: perl-Gtk3-devel = %{version}-%{release}
 Requires: perl-Gtk3 = %{version}-%{release}
-Requires: perl-Gtk3 = %{version}-%{release}
 
 %description dev
 dev components for the perl-Gtk3 package.
@@ -45,8 +45,18 @@ Group: Default
 license components for the perl-Gtk3 package.
 
 
+%package perl
+Summary: perl components for the perl-Gtk3 package.
+Group: Default
+Requires: perl-Gtk3 = %{version}-%{release}
+
+%description perl
+perl components for the perl-Gtk3 package.
+
+
 %prep
 %setup -q -n Gtk3-0.036
+cd %{_builddir}/Gtk3-0.036
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -71,7 +81,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Gtk3
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Gtk3/LICENSE
+cp %{_builddir}/Gtk3-0.036/LICENSE %{buildroot}/usr/share/package-licenses/perl-Gtk3/9b07aad54a8e378c05f9c314cd48b32fdbf5f02d
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -84,7 +94,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Gtk3.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -92,4 +101,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Gtk3/LICENSE
+/usr/share/package-licenses/perl-Gtk3/9b07aad54a8e378c05f9c314cd48b32fdbf5f02d
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Gtk3.pm
