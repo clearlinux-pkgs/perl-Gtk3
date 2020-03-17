@@ -4,10 +4,10 @@
 #
 Name     : perl-Gtk3
 Version  : 0.037
-Release  : 4
+Release  : 5
 URL      : https://cpan.metacpan.org/authors/id/X/XA/XAOC/Gtk3-0.037.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/X/XA/XAOC/Gtk3-0.037.tar.gz
-Summary  : Perl interface to the 3.x series of the GTK+ toolkit
+Summary  : 'Perl interface to the 3.x series of the gtk+ toolkit'
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: perl-Gtk3-license = %{version}-%{release}
@@ -31,7 +31,6 @@ spirit to original API.
 Summary: dev components for the perl-Gtk3 package.
 Group: Development
 Provides: perl-Gtk3-devel = %{version}-%{release}
-Requires: perl-Gtk3 = %{version}-%{release}
 Requires: perl-Gtk3 = %{version}-%{release}
 
 %description dev
