@@ -4,7 +4,7 @@
 #
 Name     : perl-Gtk3
 Version  : 0.038
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/X/XA/XAOC/Gtk3-0.038.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/X/XA/XAOC/Gtk3-0.038.tar.gz
 Summary  : 'Perl interface to the 3.x series of the gtk+ toolkit'
